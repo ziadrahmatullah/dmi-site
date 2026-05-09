@@ -161,9 +161,28 @@ export default function Footer() {
         <div className="border-t border-white/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
             <p className="text-gray-400 text-xs">
-              © {new Date().getFullYear()} Dewan Masjid Indonesia. Hak Cipta Dilindungi.
+              © {new Date().getFullYear()} Dewan Masjid Indonesia. Hak Cipta Dilindungi oleh{" "}
+              <a
+                href="https://abdulghaniglobal.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-dmi-gold hover:text-dmi-gold/80 transition-colors"
+              >
+                PT. Abdul Ghani Global
+              </a>
+              .
             </p>
-            <p className="text-gray-400 text-xs">Melayani umat sejak 1972</p>
+            <p className="text-gray-400 text-xs">
+              Dikembangkan oleh{" "}
+              <a
+                href="https://abdulghaniglobal.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-dmi-gold hover:text-dmi-gold/80 transition-colors"
+              >
+                PT. Abdul Ghani Global
+              </a>
+            </p>
           </div>
         </div>
       </div>
