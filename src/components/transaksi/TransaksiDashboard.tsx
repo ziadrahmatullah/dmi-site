@@ -5,9 +5,11 @@ import { Download, Loader2 } from "lucide-react";
 import {
   fetchTransactions,
   fetchTransactionTrend,
+  fetchCategoryAllocation,
   downloadTransaksi,
 } from "@/lib/api/transaksi";
 import type {
+  CategoryAllocationData,
   FilterState,
   Meta,
   Transaction,
@@ -17,6 +19,7 @@ import FilterPanel from "./FilterPanel";
 import SummaryCards from "./SummaryCards";
 import TrendChart from "./TrendChart";
 import TransaksiTable from "./TransaksiTable";
+import CategoryAllocation from "./CategoryAllocation";
 
 type CategoryTypeFilter = "all" | "pemasukan" | "pengeluaran";
 
@@ -127,6 +130,9 @@ export default function TransaksiDashboard() {
   const [trendMonth, setTrendMonth] = useState(now.getMonth() + 1);
   const [trendLoading, setTrendLoading] = useState(false);
 
+  const [allocationData, setAllocationData] = useState<CategoryAllocationData | null>(null);
+  const [allocationLoading, setAllocationLoading] = useState(false);
+
   const loadTransactions = useCallback(async () => {
     setLoading(true);
     try {
@@ -178,8 +184,25 @@ export default function TransaksiDashboard() {
     filters.mosque_id,
   ]);
 
+  const loadAllocation = useCallback(async () => {
+    setAllocationLoading(true);
+    try {
+      const res = await fetchCategoryAllocation({
+        filter: trendFilter,
+        year: trendYear,
+        month: trendMonth,
+      });
+      setAllocationData(res.data);
+    } catch (err) {
+      console.error("fetchCategoryAllocation error:", err);
+    } finally {
+      setAllocationLoading(false);
+    }
+  }, [trendFilter, trendYear, trendMonth]);
+
   useEffect(() => { loadTransactions(); }, [loadTransactions]);
   useEffect(() => { loadTrend(); }, [loadTrend]);
+  useEffect(() => { loadAllocation(); }, [loadAllocation]);
 
   const handleFilterChange = (newFilters: FilterState) => {
     setFilters(newFilters);
@@ -273,6 +296,9 @@ export default function TransaksiDashboard() {
           loading={trendLoading}
           onFilterChange={handleTrendFilterChange}
         />
+
+        {/* Category Allocation — synced with trend filter */}
+        <CategoryAllocation data={allocationData} loading={allocationLoading} />
 
         {/* Table uses client-filtered transactions */}
         <TransaksiTable

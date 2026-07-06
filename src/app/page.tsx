@@ -9,11 +9,14 @@ import {
   Stethoscope,
   ChevronRight,
   Clock,
+  MapPin,
 } from "lucide-react";
 import Badge from "@/components/ui/Badge";
 import Card from "@/components/ui/Card";
 import DashboardTransaksi from "@/components/beranda/DashboardTransaksi";
 import DashboardQurban from "@/components/beranda/DashboardQurban";
+import HeroSlideshow from "@/components/beranda/HeroSlideshow";
+import HeroHighlightCard from "@/components/beranda/HeroHighlightCard";
 
 export const metadata: Metadata = {
   title: "Beranda",
@@ -150,6 +153,13 @@ const beritaTerkini = [
   },
 ];
 
+const heroStats = [
+  { angka: "800.000+", label: "Masjid Terdata" },
+  { angka: "34", label: "Provinsi" },
+  { angka: "6", label: "Program Unggulan" },
+  { angka: "15.000+", label: "Paket Qurban" },
+];
+
 const jadwalSholat = [
   { waktu: "Subuh", jam: "04:32" },
   { waktu: "Dzuhur", jam: "12:01" },
@@ -162,55 +172,87 @@ export default function BerandaPage() {
   return (
     <div className="min-h-screen">
       {/* ── 1. Hero ── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(135deg, #14532d 0%, #15803d 40%, #166534 70%, #14532d 100%)",
-          }}
-        />
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        <HeroSlideshow />
         <IslamicPatternSVG id="hero-pattern" />
-        <div className="absolute inset-0 bg-linear-to-b from-black/20 via-transparent to-black/50" />
 
-        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-          <div className="animate-fade-in mb-6">
-            <span className="inline-block px-4 py-1.5 bg-dmi-gold/20 border border-dmi-gold/30 rounded-full text-dmi-gold text-sm font-medium backdrop-blur-sm">
-              بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
-            </span>
-          </div>
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+            {/* Kolom kiri: konten utama */}
+            <div className="lg:col-span-7">
+              <div className="flex flex-wrap items-center gap-3 mb-8 animate-fade-in">
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 border border-white/20 rounded-full text-white text-xs font-semibold tracking-widest uppercase backdrop-blur-sm">
+                  <MapPin size={13} className="text-dmi-gold" />
+                  Jakarta, Indonesia
+                </span>
+                <span className="inline-block px-4 py-1.5 bg-dmi-gold/20 border border-dmi-gold/30 rounded-full text-dmi-gold text-sm font-medium backdrop-blur-sm">
+                  بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
+                </span>
+              </div>
 
-          <h1
-            className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in-up"
-            style={{ fontFamily: "var(--font-heading), serif" }}
-          >
-            Memakmurkan Masjid,
-            <br />
-            <span className="text-dmi-gold">Memakmurkan Umat</span>
-          </h1>
+              <h1
+                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in-up"
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                Memakmurkan Masjid,
+                <br />
+                <span className="text-dmi-gold">Memakmurkan Umat</span>
+              </h1>
 
-          <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up delay-200">
-            Dewan Masjid Indonesia hadir sebagai motor penggerak kemakmuran
-            masjid dan pemberdayaan umat Islam di seluruh penjuru nusantara.
-          </p>
+              <p className="text-lg sm:text-xl text-white/80 max-w-2xl mb-10 leading-relaxed animate-fade-in-up delay-200">
+                Dewan Masjid Indonesia hadir sebagai motor penggerak kemakmuran
+                masjid dan pemberdayaan umat Islam di seluruh penjuru
+                nusantara.
+              </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
-            <Link
-              href="/tentang"
-              className="inline-flex items-center justify-center gap-2 bg-white text-dmi-green font-semibold px-7 py-3.5 rounded-xl hover:bg-dmi-cream transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-base"
-            >
-              Tentang DMI <ArrowRight size={18} />
-            </Link>
-            <Link
-              href="/kontak"
-              className="inline-flex items-center justify-center gap-2 border-2 border-white/70 text-white font-semibold px-7 py-3.5 rounded-xl hover:bg-white hover:text-dmi-green transition-all duration-200 text-base"
-            >
-              Hubungi Kami
-            </Link>
+              <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-300">
+                <Link
+                  href="/tentang"
+                  className="inline-flex items-center justify-center gap-2 bg-dmi-gold text-white font-semibold px-7 py-3.5 rounded-xl hover:bg-amber-600 transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-base"
+                >
+                  Tentang DMI <ArrowRight size={18} />
+                </Link>
+                <Link
+                  href="/kontak"
+                  className="inline-flex items-center justify-center gap-2 border-2 border-white/70 text-white font-semibold px-7 py-3.5 rounded-xl hover:bg-white hover:text-dmi-green transition-all duration-200 text-base"
+                >
+                  Hubungi Kami
+                </Link>
+              </div>
+
+              {/* Statistik */}
+              <div className="mt-14 pt-8 border-t border-white/20 animate-fade-in-up delay-400">
+                <p className="text-white/50 text-xs font-semibold tracking-widest uppercase mb-5">
+                  DMI Dalam Angka
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-6">
+                  {heroStats.map((stat, i) => (
+                    <div
+                      key={stat.label}
+                      className={
+                        i > 0 ? "sm:border-l sm:border-white/15 sm:pl-6" : ""
+                      }
+                    >
+                      <p className="text-2xl sm:text-3xl font-bold text-white">
+                        {stat.angka}
+                      </p>
+                      <p className="text-white/60 text-xs font-semibold tracking-wider uppercase mt-1">
+                        {stat.label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Kolom kanan: kartu highlight */}
+            <div className="hidden lg:block lg:col-span-4 lg:col-start-9 animate-fade-in-up delay-500">
+              <HeroHighlightCard />
+            </div>
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-10">
           <div className="w-6 h-10 border-2 border-white/40 rounded-full flex items-start justify-center pt-2">
             <div className="w-1 h-2 bg-white/60 rounded-full" />
           </div>

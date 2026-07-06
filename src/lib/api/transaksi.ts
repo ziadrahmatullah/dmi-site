@@ -1,6 +1,7 @@
 import { BASE_URL } from '@/lib/config';
 import type {
   Category,
+  CategoryAllocationData,
   District,
   Mosque,
   Meta,
@@ -90,6 +91,18 @@ export async function fetchTransactionTrend(params: {
     category_id: params.category_id,
     district_id: params.district_id,
     mosque_id: params.mosque_id,
+  });
+}
+
+export async function fetchCategoryAllocation(params: {
+  filter: 'ytd' | 'mtd';
+  year: number;
+  month?: number;
+}): Promise<{ message: string; data: CategoryAllocationData }> {
+  return apiFetch('/dashboard/category-allocation', {
+    filter: params.filter,
+    year: params.year,
+    month: params.filter === 'mtd' ? params.month : undefined,
   });
 }
 

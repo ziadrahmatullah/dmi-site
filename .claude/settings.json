@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(grep -B2 -A2 '>DMI<\\\\|DMI$')",
+      "Bash(command -v magick convert)",
+      "Bash(identify /home/yipy-ziad/Documents/Project/abdulghaniglobal/dmi-site/public/logo.png)",
+      "Bash(convert public/logo.png -resize 256x256 src/app/icon.png)",
+      "Bash(convert public/logo.png -resize 64x64 -define icon:auto-resize=16,32,48,64 src/app/favicon.ico)",
+      "Bash(command -v rsvg-convert inkscape)",
+      "Bash(convert -list delegate)",
+      "Bash(convert t.svg t.png)",
+      "Bash(identify t.png)",
+      "Bash(convert t2.svg t2.png)",
+      "Bash(command -v chromium chromium-browser google-chrome google-chrome-stable rsvg-convert inkscape)",
+      "Bash(node -e \"require\\('sharp'\\)\\('/tmp/claude-1000/-home-yipy-ziad-Documents-Project-abdulghaniglobal-dmi-site/6681ae19-6c18-4d4e-a72e-762cbb648b43/scratchpad/t.svg'\\).resize\\(200,200\\).png\\(\\).toFile\\('/tmp/claude-1000/-home-yipy-ziad-Documents-Project-abdulghaniglobal-dmi-site/6681ae19-6c18-4d4e-a72e-762cbb648b43/scratchpad/t-sharp.png'\\).then\\(\\(\\)=>console.log\\('ok'\\)\\)\")",
+      "Bash(node -e \"require\\('sharp'\\)\\('/tmp/claude-1000/-home-yipy-ziad-Documents-Project-abdulghaniglobal-dmi-site/6681ae19-6c18-4d4e-a72e-762cbb648b43/scratchpad/t3.svg'\\).resize\\(200,200\\).png\\(\\).toFile\\('/tmp/claude-1000/-home-yipy-ziad-Documents-Project-abdulghaniglobal-dmi-site/6681ae19-6c18-4d4e-a72e-762cbb648b43/scratchpad/t3.png'\\).then\\(\\(\\)=>console.log\\('ok'\\)\\)\")",
+      "Bash(node -e \"require\\('sharp'\\)\\('/tmp/claude-1000/-home-yipy-ziad-Documents-Project-abdulghaniglobal-dmi-site/6681ae19-6c18-4d4e-a72e-762cbb648b43/scratchpad/t2.svg'\\).resize\\(200,200\\).png\\(\\).toFile\\('/tmp/claude-1000/-home-yipy-ziad-Documents-Project-abdulghaniglobal-dmi-site/6681ae19-6c18-4d4e-a72e-762cbb648b43/scratchpad/t2-sharp.png'\\).then\\(\\(\\)=>console.log\\('ok'\\)\\)\")",
+      "Bash(node /tmp/claude-1000/-home-yipy-ziad-Documents-Project-abdulghaniglobal-dmi-site/6681ae19-6c18-4d4e-a72e-762cbb648b43/scratchpad/gen-logo.js)",
+      "Bash(convert public/logo.png -format \"alpha: %A, corner pixel: \" info:)",
+      "Bash(convert public/logo.png -crop 1x1+2+2 txt:-)",
+      "Bash(sed -i 's/rx=\"8\"/rx=\"5\"/g; s/#1BAF56/#1DBA5C/; s/#0F8F43/#109248/; s/#FFCE3F/#FFD24A/; s/#EFA400/#F2A900/' gen-logo.js)",
+      "Bash(node gen-logo.js)",
+      "Bash(rm -rf /tmp/claude-1000/-home-yipy-ziad-Documents-Project-abdulghaniglobal-dmi-site/6681ae19-6c18-4d4e-a72e-762cbb648b43/scratchpad/scripts)",
+      "Bash(mkdir -p scripts)",
+      "Bash(cp /tmp/claude-1000/-home-yipy-ziad-Documents-Project-abdulghaniglobal-dmi-site/6681ae19-6c18-4d4e-a72e-762cbb648b43/scratchpad/gen-logo.js scripts/gen-logo.js)"
+    ]
+  }
+}

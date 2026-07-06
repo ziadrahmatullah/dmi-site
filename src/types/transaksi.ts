@@ -68,3 +68,16 @@ export interface FilterState {
   start_date: string;
   end_date: string;
 }
+
+export interface CategoryAllocationItem {
+  category_id: number;
+  category_name: string;
+  total_count: number;
+  total_amount: number;
+  percentage: number;
+}
+
+export interface CategoryAllocationData {
+  income: { total: number; categories: CategoryAllocationItem[] };
+  expense: { total: number; categories: CategoryAllocationItem[] };
+}

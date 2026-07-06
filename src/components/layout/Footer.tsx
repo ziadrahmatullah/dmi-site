@@ -57,11 +57,11 @@ export default function Footer() {
             {/* Brand */}
             <div className="sm:col-span-2 lg:col-span-1">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-12 h-12 bg-dmi-gold rounded-full flex items-center justify-center shrink-0">
-                  <span className="text-white font-bold text-sm tracking-tight" style={{ fontFamily: "serif" }}>
-                    DMI
-                  </span>
-                </div>
+                <img
+                  src="/logo.png"
+                  alt="Logo Dewan Masjid Indonesia"
+                  className="w-12 h-12 object-contain shrink-0"
+                />
                 <div>
                   <div className="font-bold text-white text-lg leading-tight" style={{ fontFamily: "var(--font-heading), serif" }}>
                     Dewan Masjid Indonesia
